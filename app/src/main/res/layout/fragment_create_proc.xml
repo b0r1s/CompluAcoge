@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CreateProcFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/cp_nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/cp_publish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cp_div_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_name_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/proc_name"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cp_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/name"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_name_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cp_name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_short_desc_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/proc_short_desc"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_name" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cp_short_desc"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/short_desc"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_short_desc_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cp_short_desc_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_long_desc_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/proc_long_desc"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cp_short_desc" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cp_long_desc"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/long_desc"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_long_desc_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cp_long_desc_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_tags_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/tags_proc"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cp_long_desc" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cp_tags"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/tags"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_tags_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cp_tags_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_steps_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/steps"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cp_tags" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_previous_step_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/previous_step"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cp_steps_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cp_previous_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbHorizontal="?attr/colorAccent"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_previous_step_title"
+                tools:itemCount="1"
+                tools:listitem="@layout/step_short_item" />
+
+            <ImageView
+                android:id="@+id/cp_icon_1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/icon_down_right"
+                app:layout_constraintEnd_toStartOf="@id/cp_icon_2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_previous_list" />
+
+            <ImageView
+                android:id="@+id/cp_icon_2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/icon_down_left"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cp_icon_1"
+                app:layout_constraintTop_toBottomOf="@id/cp_previous_list" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_current_step_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/current_step"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cp_icon_1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cp_current_card"
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_current_step_title"
+                app:strokeColor="@color/deep_purple_400">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cp_card_step_name"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:hint="@string/step_name"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@id/cp_card_flag"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cp_card_step_name_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cp_card_flag"
+                        style="@style/IconButton"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="false"
+                        android:visibility="gone"
+                        app:icon="@drawable/icon_flag"
+                        app:iconTint="?colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/cp_card_step_name"
+                        app:strokeWidth="0dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cp_card_step_desc"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:hint="@string/step_desc"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cp_card_step_name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cp_card_step_desc_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cp_card_images_button"
+                        style="@style/ButtonNotSpecial"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/add_image"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                        app:icon="@drawable/icon_add"
+                        app:layout_constraintEnd_toStartOf="@id/cp_card_delete"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cp_card_step_desc" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/cp_card_images_list"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:scrollbarSize="3dp"
+                        android:scrollbarThumbHorizontal="?attr/colorAccent"
+                        android:scrollbars="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cp_card_images_button"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/image_item" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cp_card_delete"
+                        style="@style/IconButton"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        app:icon="@drawable/icon_delete"
+                        app:iconTint="?colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cp_card_images_list"
+                        app:strokeWidth="0dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cp_card_mark_end"
+                        style="@style/ButtonNotSpecial"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/mark_as_end"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                        android:visibility="invisible"
+                        app:icon="@drawable/icon_flag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/cp_card_delete"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cp_card_images_list" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/cp_icon_3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/icon_down_left"
+                app:layout_constraintEnd_toStartOf="@id/cp_icon_4"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_current_card" />
+
+            <ImageView
+                android:id="@+id/cp_icon_4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/icon_down_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cp_icon_3"
+                app:layout_constraintTop_toBottomOf="@id/cp_current_card" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cp_next_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/next_step"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_icon_3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cp_next_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbHorizontal="?attr/colorAccent"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_next_title"
+                tools:itemCount="1"
+                tools:listitem="@layout/step_short_item" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cp_create"
+                style="@style/ButtonNotSpecial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/create_next"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                app:icon="@drawable/icon_add"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cp_next_list" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cp_link"
+                style="@style/ButtonNotSpecial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="@string/link_next"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                app:icon="@drawable/icon_add_link"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/cp_create"
+                app:layout_constraintTop_toBottomOf="@id/cp_create" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/cp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/create_procedure"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        app:layout_constraintBottom_toTopOf="@+id/cp_div_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cp_draft"
+        style="@style/Icon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        app:icon="@drawable/icon_done"
+        app:layout_constraintBottom_toBottomOf="@+id/cp_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/cp_title"
+        app:layout_constraintTop_toTopOf="@+id/cp_title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cp_div_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <View
+        android:id="@+id/cp_separator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="7dp"
+        android:background="?android:textColorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/cp_publish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cp_delete_proc"
+        style="@style/ButtonOriginalOutlined"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/delete_draft"
+        android:textColor="@color/orange_400"
+        app:strokeColor="@color/orange_400"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:layout_constraintBottom_toBottomOf="@id/cp_publish"
+        app:layout_constraintEnd_toStartOf="@id/cp_publish"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cp_publish" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cp_publish"
+        style="@style/ButtonOriginal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:text="@string/publish"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintStart_toEndOf="@id/cp_delete_proc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

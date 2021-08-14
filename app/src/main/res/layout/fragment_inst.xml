@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/inst_drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.InstFragment"
+    tools:openDrawer="start">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/inst_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:background="@android:color/transparent">
+
+            <gal.boris.compluacoge.extras.CollapsibleToolbar
+                android:id="@+id/inst_motion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="10dp"
+                app:layoutDescription="@xml/scene_inst_header"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                <View
+                    android:id="@+id/inst_background_color"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="?colorAccent"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/inst_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/institution"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/inst_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitCenter"
+                    android:background="@color/whiteBlack"
+                    app:shapeAppearance="@style/Corner50" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/inst_settings"
+                    style="@style/IconButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:rippleColor="@color/white"
+                    app:icon="@drawable/icon_menu" />
+
+                <View
+                    android:id="@+id/inst_helper"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+
+            </gal.boris.compluacoge.extras.CollapsibleToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/inst_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:src="@drawable/icon_add"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/email"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:maxLines="5"
+                    android:text="@string/description"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inst_email" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_procs_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/procedures"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inst_description" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_procs_open_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/open_num"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inst_procs_title" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/inst_proc_open_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:minHeight="125dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inst_procs_open_subtitle"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/proc_item" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_empty_open_procs"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/empty_procs"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/inst_proc_open_list"
+                    app:layout_constraintBottom_toBottomOf="@id/inst_proc_open_list"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_procs_closed_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/closed_num"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inst_proc_open_list" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/inst_proc_closed_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:minHeight="125dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inst_procs_closed_subtitle"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/proc_item" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_empty_closed_procs"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/empty_procs"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/inst_proc_closed_list"
+                    app:layout_constraintBottom_toBottomOf="@id/inst_proc_closed_list"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_draft_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/drafts_num"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inst_proc_closed_list" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/inst_draft_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:minHeight="125dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inst_draft_title"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/proc_item" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/inst_empty_drafts"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/empty_drafts"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/inst_draft_list"
+                    app:layout_constraintBottom_toBottomOf="@id/inst_draft_list"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/inst_lat_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/whiteBlack"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_person"
+                app:layout_constraintBottom_toTopOf="@id/inst_lat_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:shapeAppearance="@style/Corner50" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/inst_lat_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/institution"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/inst_lat_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inst_lat_image" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/inst_lat_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/email"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                app:layout_constraintBottom_toBottomOf="@id/inst_lat_div_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inst_lat_title" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/inst_lat_div_title" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/inst_lat_div_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/inst_lat_edit"
+                style="@style/Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/edit_profile"
+                app:icon="@drawable/icon_edit"
+                app:iconPadding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inst_lat_div_title" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/inst_lat_about"
+                style="@style/Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/about"
+                app:icon="@drawable/icon_info"
+                app:iconPadding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inst_lat_edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/inst_lat_sign_out"
+                style="@style/ButtonOriginal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                android:text="@string/sign_out"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

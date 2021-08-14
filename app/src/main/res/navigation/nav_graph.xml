@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loadingFragment">
+
+    <fragment
+        android:id="@+id/instFragment"
+        android:name="gal.boris.compluacoge.ui.InstFragment"
+        android:label="fragment_inst"
+        tools:layout="@layout/fragment_inst" >
+        <action
+            android:id="@+id/action_instFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
+        <action
+            android:id="@+id/action_instFragment_to_createProcFragment"
+            app:destination="@id/createProcFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_instFragment_to_selectVersionDialogFragment"
+            app:destination="@id/selectVersionDialogFragment" />
+        <action
+            android:id="@+id/action_instFragment_to_infoDialogFragment"
+            app:destination="@id/infoDialogFragment" />
+        <action
+            android:id="@+id/action_instFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_instFragment_to_initProcDialogFragment"
+            app:destination="@id/initProcDialogFragment" />
+        <action
+            android:id="@+id/action_instFragment_to_fullImageFragment"
+            app:destination="@id/fullImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="gal.boris.compluacoge.ui.LoadingFragment"
+        android:label="fragment_loading"
+        tools:layout="@layout/fragment_loading" >
+        <action
+            android:id="@+id/action_loadingFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:popUpTo="@id/loadingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loadingFragment_to_instFragment"
+            app:destination="@id/instFragment"
+            app:popUpTo="@id/loadingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loadingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepFragment"
+        android:name="gal.boris.compluacoge.ui.StepFragment"
+        android:label="fragment_step"
+        tools:layout="@layout/fragment_step" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="gal.boris.compluacoge.ui.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_userFragment_to_infoDialogFragment"
+            app:destination="@id/infoDialogFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_userFragment_to_fullImageFragment"
+            app:destination="@id/fullImageFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_initProcDialogFragment"
+            app:destination="@id/initProcDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="gal.boris.compluacoge.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_initial">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotFragment"
+            app:destination="@id/forgotFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="gal.boris.compluacoge.ui.CreateProfileFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_create_profile" />
+    <fragment
+        android:id="@+id/forgotFragment"
+        android:name="gal.boris.compluacoge.ui.ForgotFragment"
+        android:label="fragment_forgot"
+        tools:layout="@layout/fragment_forgot" />
+    <fragment
+        android:id="@+id/createProcFragment"
+        android:name="gal.boris.compluacoge.ui.CreateProcFragment"
+        android:label="fragment_create_proc"
+        tools:layout="@layout/fragment_create_proc" >
+        <argument
+            android:name="idProcedure"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createProcFragment_to_alertDialogFragment"
+            app:destination="@id/alertDialogFragment" />
+        <argument
+            android:name="versionProc"
+            app:argType="string" />
+        <argument
+            android:name="basedOnVersion"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createProcFragment_to_fullImageFragment"
+            app:destination="@id/fullImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewProcFragment"
+        android:name="gal.boris.compluacoge.ui.ViewProcFragment"
+        android:label="fragment_view_proc"
+        tools:layout="@layout/fragment_view_proc" >
+        <argument
+            android:name="idProcedure"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_alertDialogFragment"
+            app:destination="@id/alertDialogFragment" />
+        <argument
+            android:name="versionProcedure"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_createProcFragment"
+            app:destination="@id/createProcFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/viewProcFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_selectVersionDialogFragment"
+            app:destination="@id/selectVersionDialogFragment" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_stepFragment"
+            app:destination="@id/stepFragment" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_fullImageFragment"
+            app:destination="@id/fullImageFragment" />
+        <argument
+            android:name="idInst"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_instFragment"
+            app:destination="@id/instFragment"
+            app:popUpTo="@id/instFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_viewProcFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:popUpTo="@id/userFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/alertDialogFragment"
+        android:name="gal.boris.compluacoge.ui.AlertDialogFragment"
+        android:label="fragment_alert"
+        tools:layout="@layout/fragment_alert" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="message"
+            app:argType="string" />
+        <argument
+            android:name="yes"
+            app:argType="string" />
+        <argument
+            android:name="no"
+            app:argType="string" />
+        <argument
+            android:name="idStartDestination"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/selectVersionDialogFragment"
+        android:name="gal.boris.compluacoge.ui.SelectVersionDialogFragment"
+        android:label="fragment_select_version"
+        tools:layout="@layout/fragment_select_version" >
+        <argument
+            android:name="idProcedure"
+            app:argType="string" />
+        <argument
+            android:name="idStartDestination"
+            app:argType="integer" />
+        <argument
+            android:name="showEmpty"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </dialog>
+    <dialog
+        android:id="@+id/infoDialogFragment"
+        android:name="gal.boris.compluacoge.ui.InfoDialogFragment"
+        android:label="InfoDialogFragment" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="gal.boris.compluacoge.ui.EditProfileFragment"
+        android:label="EditProfileFragment" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_alertDialogFragment"
+            app:destination="@id/alertDialogFragment" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_deleteAccountDialogFragment"
+            app:destination="@id/deleteAccountDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/initProcDialogFragment"
+        android:name="gal.boris.compluacoge.ui.InitProcDialogFragment"
+        android:label="fragment_init_proc"
+        tools:layout="@layout/fragment_init_proc" >
+        <argument
+            android:name="idProcedure"
+            app:argType="string" />
+        <argument
+            android:name="versionProcedure"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_initProcDialogFragment_to_viewProcFragment"
+            app:destination="@id/viewProcFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/initProcDialogFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="idInst"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/fullImageFragment"
+        android:name="gal.boris.compluacoge.ui.FullImageFragment"
+        android:label="FullImageFragment" >
+        <argument
+            android:name="uris"
+            app:argType="android.net.Uri[]" />
+        <argument
+            android:name="pos"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/deleteAccountDialogFragment"
+        android:name="gal.boris.compluacoge.ui.DeleteAccountDialogFragment"
+        android:label="fragment_delete_account"
+        tools:layout="@layout/fragment_delete_account" >
+        <action
+            android:id="@+id/action_deleteAccountDialogFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment"
+            app:popUpTo="@id/loadingFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="gal.boris.compluacoge.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_initProcDialogFragment"
+            app:destination="@id/initProcDialogFragment" />
+    </fragment>
+</navigation>

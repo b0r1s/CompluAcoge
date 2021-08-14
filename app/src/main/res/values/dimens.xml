@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<resources>
+    <dimen name="cornerLarge">20dp</dimen> //NavDrawer (BottomSheet)
+    <dimen name="cornerMedium">15dp</dimen> //Tarjetas, dialogos y menus
+    <dimen name="cornerSmall">10dp</dimen> //Botones
+
+    <dimen name="headline3Size">48sp</dimen>
+    <dimen name="headline4Size">34sp</dimen>
+    <dimen name="headline5Size">24sp</dimen>
+    <dimen name="headline6Size">20sp</dimen>
+    <dimen name="body1Size">16sp</dimen>
+    <dimen name="buttonSize">14sp</dimen>
+    <dimen name="captionSize">12sp</dimen>
+</resources>

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ViewProcFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/vp_nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/vp_separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vp_div_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vp_steps_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/steps"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vp_previous_step_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/previous_step"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vp_steps_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vp_previous_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbHorizontal="?attr/colorAccent"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_previous_step_title"
+                tools:itemCount="2"
+                tools:listitem="@layout/step_long_item" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vp_current_step_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/current_step"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vp_previous_list" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/vp_current_card"
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_current_step_title"
+                app:strokeColor="@color/deep_purple_400">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vp_card_step_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:maxLines="1"
+                        android:text="@string/name"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/vp_card_flag"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vp_card_step_desc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="@string/description"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                        app:errorEnabled="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vp_card_step_name"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/vp_card_images"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:scrollbarSize="3dp"
+                        android:scrollbarThumbHorizontal="?attr/colorAccent"
+                        android:scrollbars="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vp_card_step_desc"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/image_item" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/vp_card_flag"
+                        style="@style/IconButton"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:clickable="false"
+                        android:visibility="visible"
+                        app:icon="@drawable/icon_flag"
+                        app:iconTint="?colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeWidth="0dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/vp_icon_3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/icon_down_left"
+                app:layout_constraintEnd_toStartOf="@id/vp_icon_4"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_current_card" />
+
+            <ImageView
+                android:id="@+id/vp_icon_4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/icon_down_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vp_icon_3"
+                app:layout_constraintTop_toBottomOf="@id/vp_current_card" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vp_next_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/next_step"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_icon_3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vp_next_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbHorizontal="?attr/colorAccent"
+                android:scrollbars="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_next_title"
+                app:layout_constraintVertical_bias="0.0"
+                tools:itemCount="1"
+                tools:listitem="@layout/step_short_item" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/vp_delete_proc"
+                style="@style/ButtonOriginalOutlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:padding="16dp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="@string/take_it_off"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vp_next_list" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vp_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="48dp"
+                android:text="@string/reached_end"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintBottom_toTopOf="@id/vp_end_button"
+                app:layout_constraintEnd_toStartOf="@id/vp_end_balloon_2"
+                app:layout_constraintStart_toEndOf="@id/vp_end_balloon_1"
+                app:layout_constraintTop_toBottomOf="@id/vp_next_list"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.emoji.widget.EmojiTextView
+                android:id="@+id/vp_end_balloon_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                app:layout_constraintBottom_toBottomOf="@id/vp_end"
+                app:layout_constraintEnd_toStartOf="@id/vp_end"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/vp_end" />
+
+            <androidx.emoji.widget.EmojiTextView
+                android:id="@+id/vp_end_balloon_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                app:layout_constraintBottom_toBottomOf="@id/vp_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vp_end"
+                app:layout_constraintTop_toTopOf="@id/vp_end" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/vp_end_button"
+                style="@style/ButtonOriginal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="56dp"
+                android:padding="16dp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="@string/finish"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_end" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/vp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/name"
+        app:layout_constrainedWidth="true"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        app:layout_constraintBottom_toTopOf="@+id/vp_div_title"
+        app:layout_constraintEnd_toStartOf="@id/vp_closed_card"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/vp_closed_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/blackWhite"
+        app:layout_constraintBottom_toTopOf="@+id/vp_div_title"
+        app:layout_constraintEnd_toStartOf="@+id/vp_tick"
+        app:layout_constraintStart_toEndOf="@id/vp_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedCornersSmall">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/vp_closed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/closed_with_lock"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:textColor="@color/whiteBlack"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/vp_tick"
+        style="@style/Icon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        app:icon="@drawable/icon_done"
+        app:layout_constraintBottom_toBottomOf="@+id/vp_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/vp_title"
+        app:layout_constraintTop_toTopOf="@+id/vp_title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vp_div_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <View
+        android:id="@+id/vp_separator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="7dp"
+        android:background="?android:textColorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/vp_create_version"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/vp_close_proc"
+        style="@style/ButtonOriginalOutlined"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/take_it_off"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:layout_constraintBottom_toBottomOf="@id/vp_create_version"
+        app:layout_constraintEnd_toStartOf="@id/vp_create_version"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vp_create_version" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/vp_create_version"
+        style="@style/ButtonOriginal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:text="@string/create_new_version"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintStart_toEndOf="@id/vp_close_proc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

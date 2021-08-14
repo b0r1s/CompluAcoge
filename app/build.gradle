@@ -1,0 +1,153 @@
+plugins {
+    id 'com.android.application'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.firebase-perf'
+    id 'com.google.firebase.crashlytics'
+}
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "gal.boris.compluacoge"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString(),
+                             "room.incremental":"true",
+                             "room.expandProjection":"true"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable = false
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Java 8
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
+
+    //Annotations
+    implementation 'androidx.annotation:annotation:1.1.0'
+
+    //ConstraintLayout y MotionLayout
+    //En la 2.0.2 no se aplican los insets post shared transition hasta que acaba :(
+    //Lo actualice!! desde la 2.0.1: no iba wrap_content + constrainedWidth
+    implementation "androidx.constraintlayout:constraintlayout:2.0.4"
+
+    //Core (clases Compat) + Insets
+    implementation "androidx.core:core:1.5.0-alpha04"
+    implementation "androidx.core:core-animation:1.0.0-alpha02"
+
+    //Material
+    implementation "com.google.android.material:material:1.3.0-alpha03"
+
+    //Preferences
+    implementation "androidx.preference:preference:1.1.1"
+
+    //WorkManager
+    implementation "androidx.work:work-runtime:2.4.0-rc01"
+
+    //ViewPager2
+    implementation "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+
+    //Recycler View
+    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha05"
+
+    //EmojiCompat
+    implementation "androidx.emoji:emoji:1.1.0"
+
+    //Fragment
+    //En la 7 no dejaba llamar a recreate en configuration
+    //La 8 y la beta tienen errores por lo que dicen los releases
+    implementation "androidx.fragment:fragment:1.3.0-alpha06"
+
+    //AppCompat
+    //La 1.3.0-alpha01 no recreaba al cambiar al modo oscuro a veces
+    implementation "androidx.appcompat:appcompat:1.2.0-rc02"
+
+    //Navigation components
+    def nav_version = '2.3.0'
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    //Room components
+    def room_version = "2.3.0-alpha02"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    //Lifecycle components
+    def lifecycle_version = '2.3.0-alpha06'
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    // Annotation processor - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+
+    //Play Core Library (In-App Updates por ejemplo)
+    implementation 'com.google.android.play:core:1.7.3'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    //Firebase
+    //Firebase BoM
+    //implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    //Analytics
+    implementation "com.google.firebase:firebase-analytics:17.4.4"
+    //Authentication (for Play Games)
+    implementation "com.google.firebase:firebase-auth:19.4.0"
+    //Cloud Firestore
+    implementation "com.google.firebase:firebase-firestore:21.7.1"
+    //Remote Config
+    implementation "com.google.firebase:firebase-config:19.2.0"
+    //Crashlytics
+    implementation "com.google.firebase:firebase-crashlytics:17.2.2"
+    //Performance Monitoring library
+    implementation "com.google.firebase:firebase-perf:19.0.9"
+    //Storage
+    implementation 'com.google.firebase:firebase-storage:19.2.2'
+}
+repositories {
+    mavenCentral()
+}
