@@ -122,7 +122,7 @@
     <string name="closed_num">Closed (%d)</string>
     <string name="edit_profile">Edit profile</string>
     <string name="about">About</string>
-    <string name="about_desc">This app was developed by Boris Carballa as his end-of-degree project in Computer Science, supervised by Rubén Fuentes</string>
+    <string name="about_desc">This app was developed by Boris Carballa as his Bachelor Thesis in Computer Science, supervised by Rubén Fuentes and Alfonso González.</string>
     <string name="okay">Okay</string>
     <string name="deleting_failed">Deleting failed</string>
     <string name="tags">Tags</string>

@@ -115,7 +115,7 @@
     <string name="closed_num">Cerrados (%d)</string>
     <string name="edit_profile">Editar perfil</string>
     <string name="about">Acerca de</string>
-    <string name="about_desc">Esta aplicación fue desarrollada por Boris Carballa para su TFG en Ing. Informática, supervisada por Rubén Fuentes</string>
+    <string name="about_desc">Esta aplicación fue desarrollada por Boris Carballa para su TFG en Ing. Informática, supervisada por Rubén Fuentes y Alfonso González.</string>
     <string name="okay">Vale</string>
     <string name="deleting_failed">La eliminación falló</string>
     <string name="tags">Etiquetas</string>
